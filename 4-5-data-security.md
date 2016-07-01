@@ -42,25 +42,39 @@
 
 > Each service provider is responsible for recording and maintaining a log of security- relevant events involving access to or use of resources, data, and services under that entity’s control.
 
+Here "security-relevant events" means lower-level information, such as the fact that a particular user was authenticated, made a particular request, etc. Dixie references ASTM E 2147-01. 
+
 ### Required Log Information ###
 
 > For each security-relevant event, the service provider should record the following data elements:[14] user identification, type of event, date and time, success or failure indication, origination of event, name of affected data, system component, or resource.
+
+Consensus was to take a position as to what information should be collected here. Although not normative, we can potentially create interoperability if these suggestions are adopted. 
 
 ### Log Retention ###
 
 > Each service provider should retain the audit log history for at least one year, with a minimum of three months immediately available for analysis (for example, online, archived, or restorable from back-up).[14] This best practice should be interpreted within the constraints of applicable jurisdictional law.
 
+Almost nothing we can say here, since this is highly variable by jurisdiction.
+
 ### Activity Monitoring ###
 
 > Each service provider is responsible for monitoring activities on the systems under its control to detect potential security breaches and data misuse.
+
+Consensus was to try to define a few events that are global to the GA4GH -- e.g. denial of service, reidentification, etc. Define a syntax for capturing these events. Propose an example of how this could work, e.g. for beacon: maybe a beacon is configured with and endpoint to notify when an event is detected. Start with beacon, then see if we can generalize. 
+
 
 ### Integration with Existing Tools ###
 
 > Service providers’ audit log records should be integratable with existing enterprise security monitoring tools.
 
+Examples logstash/kibana, nagios, monit. Recommendations here.
+
+
 ### Breach Disclosure Policy ###
 
 > Data stewards and their service providers are jointly responsible for implementing the capability to generate an accounting of accesses to and disclosures of data that can be individually identified or associated with the individual.
+
+The Security and Privacy Policy from the REWG has some more detail on this question. Although this requirement is specifically between Data stewards and service providers, it may extend to regulatory authorities, etc. We want to define a syntax / protocol for exposing these. 
 
 ## 4.5.4 Data Integrity ##
 
